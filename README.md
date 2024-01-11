@@ -150,3 +150,54 @@ Since 2 columns in the data contained non-numerical values, we converted them in
             <p>A statistical data visualization library based on Matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.</p>
         </li>
     </ul>
+
+<h2>Analysis of the quality of the resulting tool (classifier, regression, ...) using relevant metrics</h2>
+
+We first carried out tests using linear regression, of course, standardising the data beforehand
+
+![image](https://github.com/radoni02/KWD_project/assets/108626591/39d55780-38f5-4419-ab73-5f9e76996ad5)
+
+We then checked the operation of the polynomialFeatures 
+
+![image](https://github.com/radoni02/KWD_project/assets/108626591/17e15946-ed92-422f-b307-8686bc46a493)
+
+Unfortunately, in the case of our data, the ratio cannot be greater than 2 because the program is not optimal when calculating it.
+Polynomial features has too many requirements with this amount of data/features, and RFE doesn't particularly work because it relies on polynomial features
+<br></br>
+We then tried using DecisionTreeregressor and RandomForestRegressor which produced the beneficial results shown below
+
+![image](https://github.com/radoni02/KWD_project/assets/108626591/b587a6b3-9743-4f9b-a609-bc2083cc693f)
+
+![image](https://github.com/radoni02/KWD_project/assets/108626591/58bce735-015c-47de-9294-c8f5cecefc35)
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>MSE</th>
+    <th>R2 Score</th>
+    <th>Best Hyperparameters</th>
+  </tr>
+  <tr>
+    <td>Linear Regression</td>
+    <td>90.3715</td>
+    <td>0.6478</td>
+    <td>{}</td>
+  </tr>
+  <tr>
+    <td>Decision Tree Regression</td>
+    <td>6.4607</td>
+    <td>0.9748</td>
+    <td>{'max_depth': 30, 'min_samples_split': 2}</td>
+  </tr>
+  <tr>
+    <td>Random Forest Regression</td>
+    <td>3.4193</td>
+    <td>0.9867</td>
+    <td>{'max_depth': 30, 'min_samples_split': 2, 'n_estimators': 200}</td>
+  </tr>
+</table>
+
+
+In conclusion, the ensemble approach of the Random Forest, coupled with meticulous hyperparameter tuning, has resulted in superior regression performance compared to both Linear Regression and Decision Tree models. These findings provide valuable insights for selecting the most suitable model for predictive tasks in this context
+
+<h2>Analysis of how the quality of the proposed tool will change if we change the configuration parameters? Have the model parameters been chosen optimally? (cross validation, grid search)</h2>
