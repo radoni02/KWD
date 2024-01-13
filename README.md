@@ -200,4 +200,4 @@ We then tried using DecisionTreeregressor and RandomForestRegressor which produc
 
 In conclusion, the ensemble approach of the Random Forest, coupled with meticulous hyperparameter tuning, has resulted in superior regression performance compared to both Linear Regression and Decision Tree models. These findings provide valuable insights for selecting the most suitable model for predictive tasks in this context
 
-<h2>Analysis of how the quality of the proposed tool will change if we change the configuration parameters? Have the model parameters been chosen optimally? (cross validation, grid search)</h2>
+
